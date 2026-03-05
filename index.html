@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Microsoft Elevate Program Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="hamburger" onclick="toggleSidebar()">
+  ☰
+</div>
+  <div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <h1>MS Elevate</h1>
+        <span>Internship Portfolio</span>
+      </div>
+
+      <nav>
+        <button class="nav-btn active" onclick="showHome()">Home</button>
+
+        <button class="nav-btn" onclick="showWeek(1)">Week 1</button>
+
+        <button class="nav-btn" onclick="showWeek(2)">Week 2</button>
+        <div class="task-list" id="week2-tasks"></div>
+
+        <button class="nav-btn" onclick="showWeek(3)">Week 3</button>
+        <div class="task-list" id="week3-tasks"></div>
+
+        <button class="nav-btn" onclick="showWeek(4)">Week 4</button>
+        <div class="task-list" id="week4-tasks"></div>
+
+        <button class="nav-btn" onclick="showWeek(5)">Week 5</button>
+        <div class="task-list" id="week5-tasks"></div>
+
+        <button class="nav-btn" onclick="showWeek(6)">Week 6</button>
+        <div class="task-list" id="week6-tasks"></div>
+
+        <button class="nav-btn" onclick="showWeek(7)">Week 7</button>
+        <div class="task-list" id="week7-tasks"></div>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <div id="content-area" class="content-wrapper">
+        <!-- Dynamic content loads here -->
+      </div>
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

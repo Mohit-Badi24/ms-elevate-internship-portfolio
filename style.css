@@ -1,0 +1,648 @@
+/* ===================================
+   GLOBAL RESET
+=================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #e2e8f0;
+}
+
+/* Animated Background */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===================================
+   LAYOUT
+=================================== */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===================================
+   SIDEBAR
+=================================== */
+.sidebar {
+  width: 260px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(15px);
+  padding: 30px 20px;
+  box-shadow: 4px 0 30px rgba(37, 99, 235, 0.4);
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.brand h1 {
+  color: #3b82f6;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.brand span {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.nav-btn {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #e2e8f0;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: rgba(59, 130, 246, 0.2);
+  transform: translateX(6px);
+}
+
+.nav-btn.active {
+  background: #2563eb;
+  color: white;
+}
+
+/* ===================================
+   MAIN CONTENT
+=================================== */
+.main-content {
+  margin-left: 260px;
+  padding: 50px;
+  width: 100%;
+}
+
+.content-wrapper {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ===================================
+   CARDS
+=================================== */
+.home-card, .day-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  padding: 25px;
+  border-radius: 16px;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: 0.3s ease;
+}
+
+.home-card:hover,
+.day-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.3);
+}
+.home-card,
+.day-card {
+  position: relative;
+  z-index: 1;
+}
+/* ===================================
+   HEADINGS
+=================================== */
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: #60a5fa;
+  margin-bottom: 12px;
+}
+
+/* ===================================
+   TASK BUTTONS
+=================================== */
+.task-btn {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.3);
+  padding: 6px 12px;
+  margin: 6px 6px 6px 0;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.task-btn:hover {
+  background: #2563eb;
+  transform: scale(1.05);
+}
+
+/* ===================================
+   LINKS
+=================================== */
+a {
+  color: #60a5fa;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===================================
+   SCROLLBAR
+=================================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #2563eb;
+  border-radius: 10px;
+}
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 25px;
+  margin-bottom: 12px;
+  color: #3b82f6;
+  border-left: 4px solid #3b82f6;
+  padding-left: 10px;
+}
+/* ===== GLOBAL CONTENT WRAPPER ===== */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* space between sections */
+  padding-bottom: 40px;
+}
+
+/* ===== SECTION BOX ===== */
+.task-section {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transition: 0.3s ease;
+}
+
+.task-section:hover,
+.week-day-card:hover {
+  transform: translateY(-6px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===== TASK HEADER ===== */
+.task-header {
+  background: linear-gradient(135deg, #0078d4, #005a9e);
+  color: white;
+  padding: 22px 30px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.task-header h2 {
+  margin: 0;
+}
+
+/* ===== HIGHLIGHT HEADINGS ===== */
+.highlight-heading {
+  color: #0078d4;
+  margin-bottom: 14px;
+  font-weight: 600;
+  border-left: 4px solid #0078d4;
+  padding-left: 10px;
+}
+
+/* ===== LIST STYLING ===== */
+.styled-list {
+  padding-left: 20px;
+  line-height: 1.7;
+}
+
+.styled-list li {
+  margin-bottom: 8px;
+}
+
+/* ===== SCREENSHOT IMAGES ===== */
+.task-image {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* ===== PROJECT LINK BUTTON ===== */
+.project-link {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #0078d4;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.project-link:hover {
+  background: #005a9e;
+}
+/* ===============================
+   MAIN CONTENT AREA (Full Width)
+================================= */
+
+.content {
+  flex: 1;
+  padding: 60px 80px;
+  background: linear-gradient(135deg, #eef2f7, #f8fbff);
+}
+
+/* Remove width restriction */
+.content-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ===============================
+/* ===== TASK HEADER (Strong Visual Separation) ===== */
+.task-header {
+  padding: 35px 45px;
+  border-radius: 22px;
+
+  background: linear-gradient(135deg, #0078d4, #004a9f);
+  color: white;
+
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.15),
+    0 0 30px rgba(0, 120, 212, 0.35);
+
+  margin-bottom: 10px;
+}
+
+.task-header h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ===============================
+   GLASS TASK BOXES
+================================= */
+
+.task-section {
+  position: relative;
+  padding: 35px 40px;
+  border-radius: 18px;
+
+  /* Glass Effect */
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  /* Subtle Border Glow */
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.08),
+    0 0 15px rgba(0, 120, 212, 0.05);
+
+  transition: all 0.35s ease;
+}
+
+/* Left Accent Stripe */
+.task-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 20px;
+  bottom: 20px;
+  width: 6px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #0078d4, #00c6ff);
+}
+
+/* Hover Animation */
+.task-section:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.12),
+    0 0 25px rgba(0, 120, 212, 0.2);
+}
+
+/* ===============================
+   HEADINGS
+================================= */
+
+.highlight-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0078d4;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+}
+
+/* ===============================
+   LIST STYLING
+================================= */
+
+.styled-list {
+  padding-left: 25px;
+  line-height: 1.8;
+  color: #2c2c2c;
+}
+
+.styled-list li {
+  margin-bottom: 10px;
+}
+
+/* ===============================
+   SCREENSHOT STYLE
+================================= */
+
+.task-image {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 14px;
+  transition: 0.4s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.task-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 120, 212, 0.2);
+}
+
+/* ===============================
+   PROJECT LINK BUTTON
+================================= */
+
+.project-link {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0078d4, #00c6ff);
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 120, 212, 0.25);
+}
+
+.project-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 120, 212, 0.35);
+
+}
+
+/* ===============================
+   WEEK HEADER
+================================= */
+
+.week-header {
+  margin-bottom: 30px;
+}
+
+.week-header h2 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #003366;
+}
+
+/* ===============================
+   WEEK DAY CARD (Glass Style)
+================================= */
+
+.week-day-card {
+  position: relative;
+  padding: 30px 35px;
+  border-radius: 18px;
+
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.08);
+
+  margin-bottom: 30px;
+  transition: 0.35s ease;
+}
+
+.week-day-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Accent stripe */
+.week-day-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 20px;
+  bottom: 20px;
+  width: 5px;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #0078d4, #00c6ff);
+}
+
+/* Header inside day */
+.week-day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.week-day-header h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #0078d4;
+}
+
+.week-date {
+  font-size: 13px;
+  color: #555;
+  background: rgba(0, 120, 212, 0.08);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+/* ===============================
+   WEEK BANNER (Strong Separation)
+================================= */
+.week-banner {
+  padding: 45px 50px;
+  border-radius: 24px;
+
+  background: linear-gradient(135deg, #001f3f, #004a9f);
+
+  color: white;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.2),
+    0 0 40px rgba(0, 120, 212, 0.3);
+
+  margin-bottom: 40px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle glowing line */
+.week-banner::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #0078d4, #00c6ff);
+}
+
+.week-banner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.week-banner h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.week-badge {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+/* ===== PAGE TRANSITION ===== */
+
+.content-wrapper {
+  animation: fadeInPage 0.6s ease forwards;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ===== SECTION ENTRY ANIMATION ===== */
+
+.task-section,
+.week-day-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInCard 0.6s ease forwards;
+}
+
+.task-section:nth-child(2),
+.week-day-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.task-section:nth-child(3),
+.week-day-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.task-section:nth-child(4),
+.week-day-card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInCard {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.nav-btn,
+.task-btn {
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover,
+.task-btn:hover {
+  transform: translateX(4px);
+}
+.project-link {
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  transform: translateY(-2px);
+}
+/* ===== PAGE TRANSITION SYSTEM ===== */
+
+.page-transition {
+  opacity: 1;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.page-transition.fade-out {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition.fade-in-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ===== HAMBURGER ===== */
+
+.hamburger {
+  position: fixed;
+  top: 18px;
+  left: 20px;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 2000;
+  color: #0078d4;
+}
+
+/* ===== SIDEBAR TOGGLE EXPERIMENT ===== */
+
+.sidebar {
+  position: fixed;
+  left: -270px; /* hidden by default */
+  top: 0;
+  height: 100vh;
+  width: 260px;
+  transition: left 0.3s ease;
+  z-index: 1500;
+}
+
+/* When active */
+.sidebar.active {
+  left: 0;
+}
