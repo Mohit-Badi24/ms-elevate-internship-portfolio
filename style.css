@@ -1,0 +1,330 @@
+/* ===================================
+   GLOBAL RESET
+=================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f8fafc;
+  color: #334155;
+  line-height: 1.6;
+}
+
+/* ===================================
+   LAYOUT
+=================================== */
+.app-layout {
+  display: flex;
+}
+
+/* ===================================
+   SIDEBAR
+=================================== */
+.sidebar {
+  width: 260px;
+  background: #ffffff;
+  padding: 25px 15px;
+  border-right: 1px solid #e2e8f0;
+  position: fixed;
+  left: -260px;
+  top: 0;
+  height: 100vh;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+/* BRAND */
+.brand {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.brand h1 {
+  font-size: 22px;
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+.brand span {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* NAV BUTTONS */
+.nav-btn {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  color: #475569;
+  transition: all 0.25s ease;
+}
+
+.nav-btn:hover {
+  background: #f1f5f9;
+  transform: translateX(5px);
+}
+
+.nav-btn.active {
+  background: #2563eb;
+  color: white;
+  font-weight: 500;
+}
+
+/* ===================================
+   HAMBURGER
+=================================== */
+.hamburger {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 2000;
+  transition: 0.2s;
+}
+
+.hamburger:hover {
+  transform: scale(1.1);
+}
+
+/* ===================================
+   MAIN CONTENT
+=================================== */
+.main-content {
+  margin-left: 0;
+  padding: 60px 40px;
+  width: 100%;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar.active ~ .main-content {
+  margin-left: 260px;
+}
+
+/* ===================================
+   CONTENT WRAPPER
+=================================== */
+.content-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  animation: fadeIn 0.5s ease;
+}
+
+/* ===================================
+   CARDS
+=================================== */
+.home-card,
+.day-card,
+.task-section,
+.week-day-card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+/* CARD HOVER EFFECT */
+.home-card:hover,
+.day-card:hover,
+.task-section:hover,
+.week-day-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* ===================================
+   HEADERS
+=================================== */
+.task-header,
+.week-banner {
+  background: #1e293b;
+  color: white;
+  padding: 22px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.task-header h2,
+.week-banner h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* ===================================
+   TEXT
+=================================== */
+h1 {
+  font-size: 30px;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+h3 {
+  color: #1e3a8a;
+  margin-bottom: 12px;
+}
+
+.highlight-heading {
+  font-size: 16px;
+  border-left: 4px solid #2563eb;
+  padding-left: 12px;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+
+/* ===================================
+   LIST
+=================================== */
+.styled-list {
+  padding-left: 20px;
+}
+
+.styled-list li {
+  margin-bottom: 10px;
+  transition: 0.2s;
+}
+
+.styled-list li:hover {
+  color: #1e3a8a;
+}
+
+/* ===================================
+   BUTTONS
+=================================== */
+.task-btn {
+  padding: 7px 14px;
+  background: #f1f5f9;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.task-btn:hover {
+  background: #e2e8f0;
+  transform: scale(1.05);
+}
+
+.project-link {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #2563eb;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.project-link:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* ===================================
+   IMAGES
+=================================== */
+.task-image {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+/* IMAGE HOVER */
+.task-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ===================================
+   ANIMATION
+=================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.content-wrapper {
+  max-width: 1100px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.home-card,
+.day-card,
+.task-section,
+.week-day-card {
+  width: 100%;   /* 🔥 FIX WIDTH ISSUE */
+}
+.sidebar {
+  overflow-y: auto;
+}
+
+/* Optional: nice scroll */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #cbd5f5;
+  border-radius: 10px;
+}
+body {
+  transition: all 0.3s ease;
+}
+.home-card,
+.day-card,
+.task-section,
+.week-day-card {
+  backdrop-filter: blur(4px);
+}
+.week-banner,
+.task-header {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.home-card:hover,
+.day-card:hover,
+.task-section:hover,
+.week-day-card:hover {
+  border-color: #2563eb;
+}
+.task-image {
+  opacity: 0;
+  animation: fadeImage 0.6s ease forwards;
+}
+
+@keyframes fadeImage {
+  to {
+    opacity: 1;
+  }
+}
+.nav-btn.active {
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.2);
+}
